@@ -4,7 +4,7 @@ spring:
   data:
     mongodb:
       uri: ${vcap.services.mlab.credentials.uri}
-  security:
-    user:
-      name: piomin
-      password: 123456
+security:
+  user:
+    name: piomin
+    password: 123456
