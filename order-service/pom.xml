@@ -9,10 +9,10 @@
 	<artifactId>order-service</artifactId>
 
 	<dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>io.pivotal.spring.cloud</groupId> -->
-<!-- 			<artifactId>spring-cloud-services-starter-config-client</artifactId> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>io.pivotal.spring.cloud</groupId>
+			<artifactId>spring-cloud-services-starter-config-client</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>io.pivotal.spring.cloud</groupId>
 			<artifactId>spring-cloud-services-starter-service-registry</artifactId>
@@ -42,12 +42,12 @@
 					<org>piotr.minkowski</org>
 					<space>development</space>
 					<appname>${project.artifactId}</appname>
-					<memory>300</memory>
+					<memory>350</memory>
 					<instances>1</instances>
 					<server>cloud-foundry-credentials</server>
 					<url>https://order-service-piomin.cfapps.io/</url>
 					<env>
-						<JAVA_OPTS>-Xmx150M -Xss250K -XX:ReservedCodeCacheSize=70M -XX:MaxMetaspaceSize=90M</JAVA_OPTS>
+						<JAVA_OPTS>-Xmx150M -Xss250K -XX:ReservedCodeCacheSize=80M -XX:MaxMetaspaceSize=100M</JAVA_OPTS>
 					</env>
 					<services>
 						<service>
@@ -58,6 +58,11 @@
 						<service>
 							<name>discovery-service</name>
 							<label>p-service-registry</label>
+							<plan>standard</plan>
+						</service>
+						<service>
+							<name>config-service</name>
+							<label>p-config-server</label>
 							<plan>standard</plan>
 						</service>
 					</services>
